@@ -67,6 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to handle operators
     function handleOperator(operator) {
+        // Remove 'selected' class from all operator buttons
+        operatorButtons.forEach(button => {
+            button.classList.remove('selected');
+        });
+
         if (operator === '=') {
             calculateResult(); // Calculate the result if "=" is clicked
             isNewNumber = true; // Set isNewNumber to true for the next input
@@ -86,6 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         pendingOperation = operator;
         isNewNumber = true;
+
+        // Add 'selected' class to the current operator button
+        const currentOperatorButton = document.querySelector(`.operatorButtons[data-operator="${operator}"]`);
+        currentOperatorButton.classList.add('selected');
     }
 
     function calculateResult() {
