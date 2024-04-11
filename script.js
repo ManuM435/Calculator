@@ -65,19 +65,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }    
 
-
     // Function to handle operators
     function handleOperator(operator) {
+        if (operator === '=') {
+            calculateResult(); // Calculate the result if "=" is clicked
+            isNewNumber = true; // Set isNewNumber to true for the next input
+            pendingOperation = null; // Reset pendingOperation after calculation
+            return;
+        }
         if (currentNumber === '') {
             currentNumber = display.value;
         } else {
-            calculateResult();
+            if (pendingOperation !== null) {
+                // If there's already a pending operation, update it to the new operator
+                pendingOperation = operator;
+                return;
+            }
+            calculateResult(); // Calculate the result if there's a pending operation
+            currentNumber = display.value; // Update currentNumber with the result
         }
         pendingOperation = operator;
         isNewNumber = true;
     }
 
-    // Function to calculate result
     function calculateResult() {
         const operand1 = parseFloat(currentNumber);
         const operand2 = parseFloat(display.value);
