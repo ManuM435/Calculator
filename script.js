@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (number === ',') {
                     display.value += '.';
                 } else {
-                    if (display.value.length < 7) {
+                    if (display.value.length < 8) { // entra un numero más
                         display.value += number;
                     } else {
                     }
@@ -137,10 +137,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const integerPart = resultString.slice(0, decimalIndex);
                 const decimalPart = resultString.slice(decimalIndex + 1);
     
-                if (integerPart.length > 7) {
-                    resultString = result.toPrecision(7);
+                if (integerPart.length > 8) {
+                    resultString = result.toPrecision(8);
                 } else {
-                    const remainingDigits = 7 - integerPart.length;
+                    const remainingDigits = 8 - integerPart.length;
                     resultString = result.toFixed(remainingDigits);
                 }
             }

@@ -4,42 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+
+    <!-- CSS-->
     <link rel="preload" href="css/normalize.css" as="style">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <div class="calculator">
-        <div class="display">
+        <div class="display"> <!-- no hace falta contenerlo en un div si es solo un input -->
             <input type="text" id="result" value="0" readonly>
         </div>
-        <div class="buttons">
-            <button class="miscButtons" onclick="clearDisplay()">AC</button>
-            <button class="miscButtons" onclick="toggleSign()">⁺∕₋</button>
-            <button class="miscButtons" onclick="appendOperator('%')">%</button>
-            <button class="operatorButtons" onclick="appendOperator('÷')">÷</button>
+        <div class="buttons"> <!-- Esta agrupacion sirve pero no es la ideal, es mejor ordenar por tipos -->
+            <button class="miscButtons" onclick="clearDisplay()">AC</button> <!-- MISC -->
+            <button class="miscButtons" onclick="toggleSign()">⁺∕₋</button> <!-- MISC -->
+            <button class="miscButtons" onclick="appendOperator('%')">%</button> <!-- MISC -->
+            <button class="operatorButtons" onclick="appendOperator('÷')">÷</button> <!-- OPERATOR -->
             
-            <button class="numberButtons" onclick="appendNumber('7')">7</button>
-            <button class="numberButtons" onclick="appendNumber('8')">8</button>
-            <button class="numberButtons" onclick="appendNumber('9')">9</button>
-            <button class="operatorButtons" onclick="appendOperator('*')">&times;</button>
+            <button class="numberButtons" onclick="appendNumber('7')">7</button> <!-- NUMBER -->
+            <button class="numberButtons" onclick="appendNumber('8')">8</button> <!-- NUMBER -->
+            <button class="numberButtons" onclick="appendNumber('9')">9</button> <!-- NUMBER -->
+            <button class="operatorButtons" onclick="appendOperator('*')">&times;</button> <!-- OPERATOR -->
             
-            <button class="numberButtons" onclick="appendNumber('4')">4</button>
-            <button class="numberButtons" onclick="appendNumber('5')">5</button>
-            <button class="numberButtons" onclick="appendNumber('6')">6</button>
-            <button class="operatorButtons" onclick="appendOperator('-')">-</button>
+            <button class="numberButtons" onclick="appendNumber('4')">4</button> <!-- NUMBER -->
+            <button class="numberButtons" onclick="appendNumber('5')">5</button> <!-- NUMBER -->
+            <button class="numberButtons" onclick="appendNumber('6')">6</button> <!-- NUMBER -->
+            <button class="operatorButtons" onclick="appendOperator('-')">-</button> <!-- OPERATOR -->
             
-            <button class="numberButtons" onclick="appendNumber('1')">1</button>
-            <button class="numberButtons" onclick="appendNumber('2')">2</button>
-            <button class="numberButtons" onclick="appendNumber('3')">3</button>
-            <button class="operatorButtons" onclick="appendOperator('+')">+</button>
+            <button class="numberButtons" onclick="appendNumber('1')">1</button> <!-- NUMBER -->
+            <button class="numberButtons" onclick="appendNumber('2')">2</button> <!-- NUMBER -->
+            <button class="numberButtons" onclick="appendNumber('3')">3</button> <!-- NUMBER -->
+            <button class="operatorButtons" onclick="appendOperator('+')">+</button> <!-- OPERATOR -->
             
-            <button class="numberButtons elDesubicado" onclick="appendNumber('0')" id="zeroButton">0</button>
-            <button class="numberButtons" onclick="appendOperator('.')">,</button>
-            <button class="operatorButtons" onclick="calculate()">=</button>
+            <button class="numberButtons elDesubicado" onclick="appendNumber('0')" id="zeroButton">0</button> <!-- NUMBER -->
+            <button class="numberButtons" onclick="appendOperator('.')">,</button> <!-- NUMBER -->
+            <button class="operatorButtons" onclick="calculate()">=</button> <!-- OPERATOR -->
         </div>
+        <div class="extra"></div> <!-- ignore -->
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
